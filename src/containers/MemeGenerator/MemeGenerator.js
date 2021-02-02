@@ -9,7 +9,7 @@ const MemeGenerator = () => {
   const [bottomText, setBottomText] = useState("");
   const [memeList, setMemeList] = useState([]);
   const [memeImage, setMemeImage] = useState("");
-  const [colorCode, setColorCode] = useState("");
+  const [colorCode, setColorCode] = useState("white");
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then((response) => response.json())
@@ -57,7 +57,7 @@ const MemeGenerator = () => {
       </div>
       <div className="button-container">
         <Button buttonText="Change image" onClick={handleImageChange} />
-        <Button buttonText="Generate mem" onClick={handleGenerateMeme} />
+        <Button buttonText="Generate meme" onClick={handleGenerateMeme} />
       </div>
       <div className="meme-image-container">
         <div className="meme-image-wrapper">
