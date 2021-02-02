@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { drawImage } from "./utility";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import "./MemeGenerator.css";
@@ -8,6 +9,7 @@ const MemeGenerator = () => {
   const [bottomText, setBottomText] = useState("");
   const [memeList, setMemeList] = useState([]);
   const [memeImage, setMemeImage] = useState("");
+  const [colorCode, setColorCode] = useState("");
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then((response) => response.json())
@@ -15,6 +17,7 @@ const MemeGenerator = () => {
         const { memes } = response.data;
         setMemeList(memes);
         setMemeImage(memes[4].url);
+        drawImage("meme", memes[4].url, colorCode);
       });
   }, []);
   const handleImageChange = (event) => {
@@ -22,10 +25,14 @@ const MemeGenerator = () => {
     const randNum = Math.floor(Math.random() * memeList.length);
     const randMemeImg = memeList[randNum].url;
     setMemeImage(randMemeImg);
+    drawImage("meme", randMemeImg, colorCode, topText, bottomText);
+  };
+  const handleGenerateMeme = () => {
+    drawImage("meme", memeImage, colorCode, topText, bottomText);
   };
   return (
     <div>
-      <div class="text-input-container">
+      <div className="text-input-container">
         <Input
           name="topText"
           label="Top text"
@@ -40,15 +47,21 @@ const MemeGenerator = () => {
           onChange={setBottomText}
           value={bottomText}
         />
+        <Input
+          name="colorCode"
+          label="Text color"
+          placeholder="Enter color or its code"
+          onChange={setColorCode}
+          value={colorCode}
+        />
       </div>
       <div className="button-container">
         <Button buttonText="Change image" onClick={handleImageChange} />
+        <Button buttonText="Generate mem" onClick={handleGenerateMeme} />
       </div>
       <div className="meme-image-container">
         <div className="meme-image-wrapper">
-          <h2 className="meme-text meme-top-text">{topText}</h2>
-          <img className="meme-image" src={memeImage} alt="Meme" />
-          <h2 className="meme-text meme-bottom-text">{bottomText}</h2>
+          <canvas id="meme" width={500} height={500} />
         </div>
       </div>
     </div>
