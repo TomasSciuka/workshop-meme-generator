@@ -1,0 +1,50 @@
+.text-input-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+.button-container {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.meme-image-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.meme-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.meme-image {
+  width: 500px;
+  height: 500px;
+}
+
+.meme-text {
+  position: absolute;
+  width: 80%;
+  color: #fff;
+  font-size: 40px;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  -webkit-text-stroke: 0.3px black;
+}
+
+.meme-top-text {
+  top: 20px;
+}
+
+.meme-bottom-text {
+  bottom: 20px;
+}

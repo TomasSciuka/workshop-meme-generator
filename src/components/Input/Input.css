@@ -1,0 +1,25 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.input-label {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.text-input {
+  border: 1px solid #000;
+  height: 30px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.text-input:focus {
+  border-color: rgb(25, 151, 120);
+}
+
+.text-input:focus-visible {
+  outline: none;
+}
