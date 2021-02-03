@@ -1,12 +1,10 @@
 import React from "react";
 import "./Header.css";
+import headerImg from "../../static/Trollface.png";
 const Header = () => {
   return (
     <header>
-      <img
-        src="http://www.pngall.com/wp-content/uploads/2016/05/Trollface.png"
-        alt="Problem?"
-      />
+      <img src={headerImg} alt="Problem?" />
       <h1 className="page-title">Meme Generator</h1>
     </header>
   );

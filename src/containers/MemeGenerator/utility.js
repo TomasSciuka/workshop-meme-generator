@@ -27,12 +27,12 @@ export const drawImage = (
 
     if (topText != null) {
       canvasTxt.vAlign = "top";
-      canvasTxt.drawText(ctx, topText, 0, 0, 500, 500);
+      canvasTxt.drawText(ctx, topText, 0, 0, 480, 480);
     }
 
     if (bottomText != null) {
       canvasTxt.vAlign = "bottom";
-      canvasTxt.drawText(ctx, bottomText, 0, -20, 500, 500);
+      canvasTxt.drawText(ctx, bottomText, 0, -20, 480, 480);
     }
   };
   img.src = imageUrl;
